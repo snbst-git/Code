@@ -24,9 +24,16 @@ bool edgecmp(edge a,edge b){
 
 int getRoot(int v[], int x)
 {
+    int st=x,tmp;
 	while (v[x] != x)
 	{
 		x = v[x];
+	}
+	//x为真root，修改路径中的为x
+	while(v[st]!=x){
+	    tmp=v[st];
+        v[st]=x;
+        st=tmp;
 	}
 	return x;
 }
